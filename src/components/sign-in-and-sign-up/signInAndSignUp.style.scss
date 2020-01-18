@@ -1,0 +1,22 @@
+.signInsignUp-page {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 50px 0px;
+
+  .signin-form,
+  .signup-form {
+    width: 30vw;
+
+    .form-header {
+      font-weight: normal;
+      font-size: 26px;
+      margin: 15px 0px;
+    }
+
+    .form-header-subtitle {
+      font-size: 16px;
+      color: grey;
+    }
+  }
+}
