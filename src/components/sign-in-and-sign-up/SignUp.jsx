@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FormInput from "../commons/forminput/FormInput";
 import FormButton from "../commons/button/FormButton";
+import { auth, createUserProfile } from "../../firebase/firebase.utils";
 
 class SignUp extends Component {
   state = {
@@ -16,8 +17,32 @@ class SignUp extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
+
+    const { name, email, password, confirmPassword } = this.state;
+
+    if (password !== confirmPassword) {
+      console.log("Password does not match.");
+      return;
+    }
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+
+      await createUserProfile(user, { displayName: name });
+      this.setState({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
+      });
+    } catch (error) {
+      console.log(error);
+      console.log(error.message);
+    }
   };
   render() {
     return (
