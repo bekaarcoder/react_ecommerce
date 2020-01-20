@@ -59,7 +59,7 @@ class SignUp extends Component {
             label="Confirm Password"
             onChange={this.handleChange}
           />
-          <FormButton type="submit" value="SIGN UP" />
+          <FormButton type="submit" value="SIGN UP" className="btn" />
         </form>
       </div>
     );

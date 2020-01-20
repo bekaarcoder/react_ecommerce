@@ -1,0 +1,26 @@
+$spacer: 0.25rem;
+$n: 5;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 20px 50px;
+}
+
+@for $i from 1 through $n {
+  .ml-#{$i} {
+    margin-left: $i * $spacer;
+  }
+  .mb-#{$i} {
+    margin-bottom: $i * $spacer;
+  }
+  .mt-#{$i} {
+    margin-top: $i * $spacer;
+  }
+  .mr-#{$i} {
+    margin-right: $i * $spacer;
+  }
+}

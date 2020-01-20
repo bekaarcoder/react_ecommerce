@@ -7,6 +7,8 @@
   .signin-form,
   .signup-form {
     width: 30vw;
+    display: flex;
+    flex-direction: column;
 
     .form-header {
       font-weight: normal;

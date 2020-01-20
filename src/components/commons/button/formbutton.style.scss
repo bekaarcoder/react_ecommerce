@@ -1,5 +1,5 @@
 $main-color: black;
-$sub-color: #cccccc;
+$google: #4285F4;
 
 .btn {
   padding: 12px;
@@ -8,4 +8,21 @@ $sub-color: #cccccc;
   color: white;
   font-size: 16px;
   cursor: pointer;
+  outline: none;
+  text-align: center;
+
+  &:hover {
+    background-color: white;
+    color: $main-color;
+  }
+
+  &.google-btn {
+    background-color: $google;
+    border: 1px solid $google;
+    color: white;
+
+    &:hover {
+      background-color: #357ae8;
+    }
+  }
 }
