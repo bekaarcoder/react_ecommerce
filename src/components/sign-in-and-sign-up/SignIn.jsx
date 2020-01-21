@@ -4,14 +4,27 @@ import FormInput from "../commons/forminput/FormInput";
 import FormButton from "../commons/button/FormButton";
 import "./signInAndSignUp.style.scss";
 
+import { auth } from "../../firebase/firebase.utils";
+
 class SignIn extends Component {
   state = {
     email: "",
     password: ""
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
+    const { email, password } = this.state;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({
+        email: "",
+        password: ""
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   handleChange = event => {
