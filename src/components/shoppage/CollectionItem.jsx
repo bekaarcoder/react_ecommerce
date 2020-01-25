@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./shopPage.style.scss";
+import FormButton from "../commons/button/FormButton";
 
 const CollectionItem = ({ name, imageUrl, price }) => {
   return (
@@ -9,7 +10,11 @@ const CollectionItem = ({ name, imageUrl, price }) => {
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
       ></div>
-      <div className="cart-title">ADD TO CART</div>
+      <FormButton
+        type="button"
+        value="ADD TO CART"
+        className="btn cart-title"
+      />
       <div className="preview-footer">
         <span className="item-name">{name}</span>
         <span className="item-price">{price}</span>
