@@ -1,4 +1,4 @@
-import { TOGGLE_CART_DROPDOWN, ADD_ITEM } from "../types";
+import { TOGGLE_CART_DROPDOWN, ADD_ITEM, REMOVE_ITEM } from "../types";
 
 export const toggleCartDropdown = () => ({
   type: TOGGLE_CART_DROPDOWN
@@ -6,5 +6,10 @@ export const toggleCartDropdown = () => ({
 
 export const addItemToCart = item => ({
   type: ADD_ITEM,
+  payload: item
+});
+
+export const removeItemFromCart = item => ({
+  type: REMOVE_ITEM,
   payload: item
 });

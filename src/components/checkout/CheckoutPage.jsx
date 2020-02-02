@@ -6,8 +6,9 @@ import {
   selectCartItems,
   selectCartTotal
 } from "../../redux/cart/cartSelector";
+import { removeItemFromCart } from "../../redux/cart/cartActions";
 
-const CheckoutPage = ({ cartItems, cartTotal }) => {
+const CheckoutPage = ({ cartItems, cartTotal, removeItemFromCart }) => {
   return (
     <div className="checkout-page">
       <div className="checkout-header">
@@ -26,9 +27,16 @@ const CheckoutPage = ({ cartItems, cartTotal }) => {
                   <img src={cartItem.imageUrl} alt={cartItem.name} />
                 </span>
                 <span className="row-item">{cartItem.name}</span>
-                <span className="row-item">{cartItem.quantity}</span>
+                <span className="row-item">
+                  &#10094; {cartItem.quantity} &#10095;
+                </span>
                 <span className="row-item">{cartItem.price}</span>
-                <span className="row-item">X</span>
+                <span
+                  className="row-item remove"
+                  onClick={() => removeItemFromCart(cartItem)}
+                >
+                  &#10006;
+                </span>
               </div>
             ))}
           </div>
@@ -53,4 +61,8 @@ const mapStateToProps = state => ({
   cartTotal: selectCartTotal(state)
 });
 
-export default connect(mapStateToProps)(CheckoutPage);
+const mapDispatchToProps = dispatch => ({
+  removeItemFromCart: item => dispatch(removeItemFromCart(item))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);

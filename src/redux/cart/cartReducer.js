@@ -1,4 +1,4 @@
-import { TOGGLE_CART_DROPDOWN, ADD_ITEM } from "../types";
+import { TOGGLE_CART_DROPDOWN, ADD_ITEM, REMOVE_ITEM } from "../types";
 
 const INITIAL_STATE = {
   hidden: true,
@@ -27,6 +27,12 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }]
+      };
+
+    case REMOVE_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(item => item.id !== action.payload.id)
       };
     default:
       return state;
