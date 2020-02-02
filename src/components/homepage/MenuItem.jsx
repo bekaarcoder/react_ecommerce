@@ -5,7 +5,7 @@ const MenuItem = ({ title, imageUrl, size }) => {
   return (
     <div className={"menu-item" + (size === "large" ? " large-item" : "")}>
       <div
-        class="background-image"
+        className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
       <div className="content">

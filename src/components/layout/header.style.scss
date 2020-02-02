@@ -67,10 +67,15 @@
     .cart-items {
       display: flex;
       flex-direction: column;
-      height: 240px;
+      max-height: 240px;
       overflow: scroll;
       overflow-x: hidden;
       margin-bottom: 20px;
+
+      .empty-message {
+        font-size: 18px;
+        margin: 20px auto;
+      }
 
       .cart-item {
         display: flex;

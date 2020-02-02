@@ -2,8 +2,8 @@ import React from "react";
 
 import "./formbutton.style.scss";
 
-const FormButton = ({ value, ...otherProps }) => {
-  return <input value={value} {...otherProps} />;
+const FormButton = ({ name, ...otherProps }) => {
+  return <input value={name} {...otherProps} />;
 };
 
 export default FormButton;
