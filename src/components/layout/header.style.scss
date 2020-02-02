@@ -72,6 +72,32 @@
       overflow-x: hidden;
       margin-bottom: 20px;
 
+      .cart-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+
+        .item-image {
+          display: flex;
+          flex-direction: column;
+          width: 60px;
+          align-items: center;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .item-detail {
+          display: flex;
+          width: 160px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
       &::-webkit-scrollbar {
         width: 10px;
       }
