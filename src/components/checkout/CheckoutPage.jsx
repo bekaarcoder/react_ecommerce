@@ -6,9 +6,19 @@ import {
   selectCartItems,
   selectCartTotal
 } from "../../redux/cart/cartSelector";
-import { removeItemFromCart } from "../../redux/cart/cartActions";
+import {
+  removeItemFromCart,
+  addItemToCart,
+  decreaseItemCount
+} from "../../redux/cart/cartActions";
 
-const CheckoutPage = ({ cartItems, cartTotal, removeItemFromCart }) => {
+const CheckoutPage = ({
+  cartItems,
+  cartTotal,
+  removeItemFromCart,
+  addItemToCart,
+  decreaseItemCount
+}) => {
   return (
     <div className="checkout-page">
       <div className="checkout-header">
@@ -28,7 +38,19 @@ const CheckoutPage = ({ cartItems, cartTotal, removeItemFromCart }) => {
                 </span>
                 <span className="row-item">{cartItem.name}</span>
                 <span className="row-item">
-                  &#10094; {cartItem.quantity} &#10095;
+                  <span
+                    className="left-arrow"
+                    onClick={() => decreaseItemCount(cartItem)}
+                  >
+                    &#10094;
+                  </span>{" "}
+                  {cartItem.quantity}{" "}
+                  <span
+                    className="right-arrow"
+                    onClick={() => addItemToCart(cartItem)}
+                  >
+                    &#10095;
+                  </span>
                 </span>
                 <span className="row-item">{cartItem.price}</span>
                 <span
@@ -62,7 +84,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeItemFromCart: item => dispatch(removeItemFromCart(item))
+  removeItemFromCart: item => dispatch(removeItemFromCart(item)),
+  addItemToCart: item => dispatch(addItemToCart(item)),
+  decreaseItemCount: item => dispatch(decreaseItemCount(item))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);
