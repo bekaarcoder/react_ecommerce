@@ -2,7 +2,12 @@
   display: flex;
   flex-direction: column;
   padding: 20px 80px;
-}
+
+  .collection-overview {
+    display: flex;
+    flex-direction: column;
+  }
+ }
 
 .collection-preview {
   display: flex;
@@ -20,8 +25,31 @@
   }
 }
 
+.collection-page {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-size: 38px;
+    margin: 0 auto 30px;
+  }
+
+  .preview {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px; */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .preview-item {
+      margin-bottom: 30px;
+    }
+  }
+}
+
 .preview-item {
-  width: 22%;
+  width: 18vw;
   height: 360px;
   display: flex;
   flex-direction: column;
